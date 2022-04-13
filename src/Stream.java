@@ -26,7 +26,7 @@ public class Stream {
         System.out.println(isGood);
         /*list.stream().forEach(s1 -> System.out.println(s1));*/
         /*        list.stream().forEach(System.out::println);*/
-       // list.stream().count(); //количество элементов
+        // list.stream().count(); //количество элементов
 
         /*list.stream().filter(s1->Character.isUpperCase(s1.charAt(0))).forEach(System.out::println);
          */
@@ -63,16 +63,16 @@ public class Stream {
                 .map(value -> value + " <3")
                 .forEach(System.out::println);
 
-        List<String> list3 = new ArrayList<>();
-        list3.add("И долго буду тем любезен я народу");
-        list3.add("Что чувства добрые я лирой пробуждал");
-        list3.add("Что чувства добрые я лирой пробуждал");
-        list3.add("Что чувства добрые я лирой пробуждал");
 
         //FlatMap
         //Метод flatMap отображает один элемент в виде нескольких элементов. Идея состоит в том,
         // что flatMap «сплющивает» каждый элемент из сложной структуры, состоящей из нескольких
         // внутренних элементов, в «плоский» стрим, состоящий только из этих внутренних элементов.
+        List<String> list3 = new ArrayList<>();
+        list3.add("И долго буду тем любезен я народу");
+        list3.add("Что чувства добрые я лирой пробуждал");
+        list3.add("Что чувства добрые я лирой пробуждал");
+        list3.add("Что чувства добрые я лирой пробуждал");
         long count = list3.stream()
                 .flatMap(value -> Arrays.stream(value.split(" ")))
                 .count();
@@ -180,6 +180,18 @@ public class Stream {
         reduced.ifPresent(System.out::println); // one + three + two
 
 
+        //TASK1
+        //https://github.com/netology-code/jd-homeworks/tree/master/streams/task1
+        List<Integer> intList1 = Arrays.asList(1, 2, 5, 16, -1, -2, 0, 32, 3, 5, 8, 23, 4);
+        java.util.stream.Stream<Integer> stream = intList1.stream();
+        stream.filter(x -> x > 0)
+                .filter(x -> x % 2 == 0)
+                .sorted(Comparator.naturalOrder()).forEach(System.out::println);
+
+
+        //TASK2
+        //https://github.com/netology-code/jd-homeworks/tree/master/streams/task2
+        
 
     }
 
